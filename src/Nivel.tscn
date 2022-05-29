@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Objeto.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Camera.gd" type="Script" id=2]
+[ext_resource path="res://src/Nivel.gd" type="Script" id=3]
+
+[sub_resource type="ParticlesMaterial" id=1]
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 49.22
+initial_velocity_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.207843, 0.647059, 0.964706, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+size = Vector3( 0.25, 0.25, 0.25 )
+
+[node name="Nivel" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Particles" type="Particles" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 3 )
+
+[node name="Objetos" type="Node" parent="."]
+
+[node name="Spatial" parent="Objetos" instance=ExtResource( 1 )]
+transform = Transform( 0.685438, 0.484761, -0.543306, -0.577416, 0.81645, 0, 0.443582, 0.313714, 0.839535, 0, 4.07592, 0 )
+
+[node name="Spatial2" parent="Objetos" instance=ExtResource( 1 )]
+transform = Transform( 0.87684, -0.345726, -0.334104, 0.374665, 0.926844, 0.0242071, 0.301293, -0.146403, 0.942225, 3.37246, 4.07592, 6.7448 )
+
+[node name="Spatial3" parent="Objetos" instance=ExtResource( 1 )]
+transform = Transform( 0.155381, -0.0370285, -0.98716, 0.124214, 0.992098, -0.0176621, 0.980014, -0.119875, 0.158753, 9.48445, 4.07592, -5.90932 )
+
+[node name="Spatial4" parent="Objetos" instance=ExtResource( 1 )]
+transform = Transform( 0.84715, -0.115301, -0.518693, -0.214662, 0.818703, -0.532584, 0.486063, 0.562522, 0.668814, -8.46658, 18.5579, -5.90932 )
+
+[node name="Spatial5" parent="Objetos" instance=ExtResource( 1 )]
+transform = Transform( 0.286965, -0.468359, -0.835638, -0.214662, 0.818703, -0.532584, 0.93358, 0.332212, 0.1344, -7.16946, 4.59204, 6.28415 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.50669, 40, 0 )
+script = ExtResource( 2 )
+
+[node name="RayCastNode" type="Spatial" parent="Camera"]
+
+[node name="RayCast" type="RayCast" parent="Camera/RayCastNode"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+enabled = true
+cast_to = Vector3( 0, -100, 0 )
