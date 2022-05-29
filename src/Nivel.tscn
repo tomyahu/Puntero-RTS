@@ -47,7 +47,7 @@ transform = Transform( 0.84715, -0.115301, -0.518693, -0.214662, 0.818703, -0.53
 transform = Transform( 0.286965, -0.468359, -0.835638, -0.214662, 0.818703, -0.532584, 0.93358, 0.332212, 0.1344, -7.16946, 4.59204, 6.28415 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.50669, 40, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9.31056, 40, -5.83966 )
 script = ExtResource( 2 )
 
 [node name="RayCastNode" type="Spatial" parent="Camera"]
